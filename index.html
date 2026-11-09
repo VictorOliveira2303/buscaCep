@@ -1,21 +1,53 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulte informações de endereço através do CEP.">
+    <title>Busca CEP</title>
     <link rel="stylesheet" href="Css/style.css">
-    <title>App Busca Cep</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Busca Cep</h2>
-        <input type="text" onblur="Coletar()" placeholder="Digite o CEP" class="input-cep">
-        <input type="text" class="estado" disabled placeholder="Estado">
-        <input type="text" class="cidade" disabled placeholder="Cidade">
-        <input type="text" class="endereco" disabled placeholder="Endereco">
-        <input type="text" class="ddd" disabled placeholder="DDD">
-        <script src="./Js/app.js"></script>
-        <button type="button" onclick="limparDados()" class="limpar">limpar</button>
-    </div>
+
+    <main class="container">
+        <h1>Busca CEP</h1>
+
+        <form class="formulario-cep" id="formulario-cep">
+            <label for="cep">Digite o CEP</label>
+
+            <div class="grupo-busca">
+                <input
+                    type="text"
+                    id="cep"
+                    class="input-cep"
+                    placeholder="00000-000"
+                    maxlength="9"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                    required
+                >
+
+                <button type="submit" class="buscar">
+                    Buscar
+                </button>
+            </div>
+
+            <div class="resultado">
+                <input type="text" class="estado" placeholder="Estado" disabled>
+                <input type="text" class="cidade" placeholder="Cidade" disabled>
+                <input type="text" class="endereco" placeholder="Endereço" disabled>
+                <input type="text" class="ddd" placeholder="DDD" disabled>
+            </div>
+
+            <p class="mensagem" aria-live="polite"></p>
+
+            <button type="reset" class="limpar">
+                Limpar
+            </button>
+        </form>
+    </main>
+
+    <script src="./Js/app.js"></script>
 </body>
 </html>

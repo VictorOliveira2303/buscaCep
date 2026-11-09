@@ -1,49 +1,159 @@
-*{
+
+/* ===== Configurações gerais ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 12px;
 }
-body{
+
+:root {
+    --fundo: #121212;
+    --superficie: #1c1c22;
+    --texto: #f2f2f2;
+    --texto-suave: #b8b8c0;
+    --azul: #0077ff;
+    --azul-claro: #00b7ff;
+    --borda: #ffffff1d;
+    --largura-maxima: 420px;
+}
+
+body {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background: rgb(0,22,255);
+    padding: 20px;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
 }
-.container{
+
+/* ===== Container principal ===== */
+.container {
+    width: 100%;
+    max-width: var(--largura-maxima);
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    padding: 30px;
-    gap: 10px;
-    border-radius: 15px;
+    gap: 20px;
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    box-shadow: 0 10px 35px #00000050;
 }
-h2{
+
+/* ===== Título ===== */
+h1 {
     text-align: center;
-    color: darkred;
-    font-size: 40px;
+    font-size: 30px;
+    color: var(--texto);
 }
+
+/* ===== Formulário ===== */
+.formulario-cep {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formulario-cep label {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+/* ===== Grupo de busca ===== */
+.grupo-busca {
+    display: flex;
+    gap: 10px;
+}
+
 input {
-    width: fit-content; 
-    padding: 12px 15px; 
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 16px; 
-    box-sizing: border-box; 
-    line-height: 1.5;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
     outline: none;
+    background: #121212;
+    color: var(--texto);
+    font-size: 15px;
+    transition: border-color 0.2s ease;
 }
+
+input:focus {
+    border-color: var(--azul);
+}
+
+input::placeholder {
+    color: #777780;
+}
+
+input:disabled {
+    opacity: 1;
+    color: var(--texto-suave);
+    cursor: not-allowed;
+}
+
+/* ===== Botões ===== */
 button {
-    width: fit-content; 
-    padding: 12px 15px; 
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 16px; 
-    box-sizing: border-box; 
-    line-height: 1.5;
-    outline: none;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.buscar {
+    background: var(--azul);
+    color: white;
+}
+
+.buscar:hover {
+    background: var(--azul-claro);
+}
+
+.limpar {
+    background: transparent;
+    border: 1px solid var(--borda);
+    color: var(--texto);
+}
+
+.limpar:hover {
+    background: #ffffff12;
+}
+
+/* ===== Resultado ===== */
+.resultado {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===== Mensagens ===== */
+.mensagem {
+    min-height: 18px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .grupo-busca {
+        flex-direction: column;
+    }
+
+    .buscar {
+        width: 100%;
+    }
 }
